@@ -1,875 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ironline Auto Repair | Honest Auto Repair in Killeen, TX</title>
-  <meta name="description"
-    content="Family-owned auto repair in Killeen, TX. Upfront estimates, photo proof of every repair, 12-month warranty. Diagnostics, brakes, A/C, engine and transmission.">
-  <meta property="og:title" content="Ironline Auto Repair — Killeen, TX">
-  <meta property="og:description"
-    content="Fixed right. Priced straight. Upfront estimates and photo proof on every job.">
-  <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23E4531B'/><text y='72' x='50' text-anchor='middle' font-size='60' font-family='Arial' font-weight='bold' fill='white'>I</text></svg>">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Archivo+Narrow:wght@500;700&family=IBM+Plex+Mono:wght@500&display=swap"
-    rel="stylesheet">
-  <style>
-    :root {
-      --paper: #F5F4EF;
-      --ink: #191B1E;
-      --steel: #3D4854;
-      --orange: #E4531B;
-      --tape: #F1B60A;
-      --line: #C9C7BE;
-      --card: #FFFFFF;
-      --green: #1E7A3C;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: var(--paper);
-      color: var(--ink);
-      font-family: 'Archivo Narrow', 'Arial Narrow', Arial, sans-serif;
-      font-size: 17px;
-      line-height: 1.55;
-    }
-
-    h1,
-    h2,
-    h3 {
-      font-family: 'Archivo', Arial, sans-serif;
-      line-height: 1.05;
-      letter-spacing: -.01em;
-    }
-
-    .mono {
-      font-family: 'IBM Plex Mono', 'Courier New', monospace;
-      font-size: .78rem;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-
-    a {
-      color: inherit;
-    }
-
-    .wrap {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    :focus-visible {
-      outline: 3px solid var(--orange);
-      outline-offset: 2px;
-    }
-
-    /* reveal on scroll */
-    .rv {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity .55s ease, transform .55s ease;
-    }
-
-    .rv.in {
-      opacity: 1;
-      transform: none;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      .rv {
-        opacity: 1;
-        transform: none;
-        transition: none;
-      }
-
-      * {
-        transition: none !important;
-        animation: none !important;
-      }
-    }
-
-    .stripe {
-      height: 10px;
-      background: repeating-linear-gradient(-45deg, var(--ink) 0 14px, var(--tape) 14px 28px);
-    }
-
-    /* header */
-    header {
-      position: sticky;
-      top: 0;
-      background: var(--paper);
-      border-bottom: 2px solid var(--ink);
-      z-index: 50;
-    }
-
-    .bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 0;
-      gap: 16px;
-    }
-
-    .logo {
-      font-family: 'Archivo';
-      font-weight: 900;
-      font-size: 1.25rem;
-      text-transform: uppercase;
-      letter-spacing: .02em;
-    }
-
-    .logo span {
-      color: var(--orange);
-    }
-
-    nav {
-      display: flex;
-      gap: 22px;
-      align-items: center;
-    }
-
-    nav a {
-      text-decoration: none;
-      font-weight: 700;
-      text-transform: uppercase;
-      font-size: .85rem;
-      letter-spacing: .06em;
-    }
-
-    nav a:hover,
-    nav a:focus-visible {
-      color: var(--orange);
-    }
-
-    .call {
-      background: var(--orange);
-      color: #fff;
-      text-decoration: none;
-      font-family: 'Archivo';
-      font-weight: 700;
-      padding: 10px 18px;
-      border: 2px solid var(--ink);
-      box-shadow: 3px 3px 0 var(--ink);
-      white-space: nowrap;
-    }
-
-    .call:hover,
-    .call:focus-visible {
-      transform: translate(1px, 1px);
-      box-shadow: 2px 2px 0 var(--ink);
-    }
-
-    .burger {
-      display: none;
-      background: none;
-      border: 2px solid var(--ink);
-      padding: 8px 12px;
-      font-family: 'Archivo';
-      font-weight: 700;
-      cursor: pointer;
-      font-size: .9rem;
-      text-transform: uppercase;
-    }
-
-    .mobile-nav {
-      display: none;
-      border-top: 2px solid var(--ink);
-      background: var(--card);
-    }
-
-    .mobile-nav.open {
-      display: block;
-    }
-
-    .mobile-nav a {
-      display: block;
-      padding: 14px 20px;
-      text-decoration: none;
-      font-family: 'Archivo';
-      font-weight: 700;
-      text-transform: uppercase;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .mobile-nav a:active {
-      background: var(--tape);
-    }
-
-    /* open/closed pill */
-    .status {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border: 2px solid var(--ink);
-      background: var(--card);
-      padding: 5px 12px;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: .72rem;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-    }
-
-    .dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--green);
-      animation: pulse 2s infinite;
-    }
-
-    .dot.closed {
-      background: #B3261E;
-      animation: none;
-    }
-
-    @keyframes pulse {
-
-      0%,
-      100% {
-        opacity: 1;
-      }
-
-      50% {
-        opacity: .35;
-      }
-    }
-
-    /* hero */
-    .hero-bg {
-      background-color: var(--paper);
-      background-image: repeating-linear-gradient(0deg, transparent 0 39px, rgba(61, 72, 84, .09) 39px 40px), repeating-linear-gradient(90deg, transparent 0 39px, rgba(61, 72, 84, .09) 39px 40px);
-    }
-
-    .hero {
-      padding: 56px 0 64px;
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 44px;
-      align-items: start;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-
-    .hero h1 em {
-      font-style: normal;
-      color: var(--orange);
-    }
-
-    .hero p.lead {
-      margin-top: 18px;
-      font-size: 1.15rem;
-      max-width: 44ch;
-      color: var(--steel);
-    }
-
-    .hero .actions {
-      margin-top: 28px;
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .badges {
-      margin-top: 30px;
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .badge {
-      border: 2px solid var(--ink);
-      background: var(--card);
-      padding: 8px 14px;
-      font-family: 'Archivo';
-      font-weight: 700;
-      font-size: .8rem;
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .badge .star {
-      color: var(--orange);
-    }
-
-    .btn {
-      display: inline-block;
-      text-decoration: none;
-      font-family: 'Archivo';
-      font-weight: 700;
-      padding: 13px 22px;
-      border: 2px solid var(--ink);
-    }
-
-    .btn.primary {
-      background: var(--orange);
-      color: #fff;
-      box-shadow: 4px 4px 0 var(--ink);
-    }
-
-    .btn.ghost {
-      background: var(--card);
-    }
-
-    .btn:hover,
-    .btn:focus-visible {
-      transform: translate(1px, 1px);
-      box-shadow: 2px 2px 0 var(--ink);
-    }
-
-    .workorder {
-      background: var(--card);
-      border: 2px solid var(--ink);
-      box-shadow: 6px 6px 0 var(--ink);
-    }
-
-    .wo-head {
-      display: flex;
-      justify-content: space-between;
-      border-bottom: 2px solid var(--ink);
-      padding: 12px 16px;
-      background: var(--tape);
-    }
-
-    .wo-body {
-      padding: 16px;
-    }
-
-    .wo-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 9px 0;
-      border-bottom: 1px dashed var(--line);
-    }
-
-    .wo-row:last-child {
-      border-bottom: none;
-    }
-
-    .wo-row b {
-      font-family: 'Archivo';
-      text-align: right;
-    }
-
-    .wo-stamp {
-      margin: 14px 16px 18px;
-      border: 3px solid var(--orange);
-      color: var(--orange);
-      display: inline-block;
-      padding: 5px 14px;
-      font-family: 'Archivo';
-      font-weight: 900;
-      text-transform: uppercase;
-      transform: rotate(-3deg) scale(1);
-      letter-spacing: .06em;
-      animation: stamp .45s cubic-bezier(.2, 1.6, .4, 1) .6s backwards;
-    }
-
-    @keyframes stamp {
-      0% {
-        transform: rotate(-3deg) scale(2.2);
-        opacity: 0;
-      }
-
-      100% {
-        transform: rotate(-3deg) scale(1);
-        opacity: 1;
-      }
-    }
-
-    section {
-      padding: 64px 0;
-      scroll-margin-top: 72px;
-    }
-
-    .eyebrow {
-      color: var(--orange);
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      font-size: clamp(1.7rem, 3.4vw, 2.5rem);
-      text-transform: uppercase;
-      font-weight: 900;
-      margin-bottom: 28px;
-    }
-
-    /* how it works */
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      counter-reset: step;
-    }
-
-    .step {
-      background: var(--card);
-      border: 2px solid var(--ink);
-      padding: 22px;
-      position: relative;
-    }
-
-    .step::before {
-      counter-increment: step;
-      content: "Step " counter(step);
-      position: absolute;
-      top: -13px;
-      left: 14px;
-      background: var(--ink);
-      color: var(--tape);
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: .7rem;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      padding: 3px 10px;
-    }
-
-    .step h3 {
-      margin: 6px 0 8px;
-      font-size: 1.05rem;
-      text-transform: uppercase;
-    }
-
-    .step p {
-      color: var(--steel);
-      font-size: .95rem;
-    }
-
-    .services {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      background: var(--ink);
-      border: 2px solid var(--ink);
-    }
-
-    .svc {
-      background: var(--card);
-      padding: 22px;
-      transition: background .2s;
-    }
-
-    .svc:hover {
-      background: #FFF3EA;
-    }
-
-    .svc h3 {
-      font-size: 1.05rem;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .svc h3 span {
-      color: var(--orange);
-      margin-right: 6px;
-    }
-
-    .svc p {
-      color: var(--steel);
-      font-size: .95rem;
-    }
-
-    .trust {
-      background: var(--ink);
-      color: var(--paper);
-    }
-
-    .trust h2 {
-      color: #fff;
-    }
-
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 34px;
-    }
-
-    .trust-item .mono {
-      color: var(--tape);
-      margin-bottom: 8px;
-      display: block;
-    }
-
-    .trust-item p {
-      color: #C7CCD2;
-      font-size: .98rem;
-    }
-
-    .trust-item h3 {
-      margin-bottom: 8px;
-      color: #fff;
-    }
-
-    .rev-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 28px;
-    }
-
-    .rev-head h2 {
-      margin-bottom: 0;
-    }
-
-    .gbadge {
-      border: 2px solid var(--ink);
-      background: var(--card);
-      padding: 12px 18px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      box-shadow: 4px 4px 0 var(--ink);
-    }
-
-    .gbadge .num {
-      font-family: 'Archivo';
-      font-weight: 900;
-      font-size: 1.8rem;
-      line-height: 1;
-    }
-
-    .gbadge .stars {
-      color: var(--orange);
-      letter-spacing: 2px;
-    }
-
-    .gbadge .sub {
-      font-size: .8rem;
-      color: var(--steel);
-    }
-
-    .reviews {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .review {
-      background: var(--card);
-      border: 2px solid var(--ink);
-      padding: 20px;
-    }
-
-    .review .stars {
-      color: var(--orange);
-      font-size: 1.05rem;
-      letter-spacing: 2px;
-    }
-
-    .review p {
-      margin: 10px 0 12px;
-      color: var(--steel);
-      font-size: .95rem;
-    }
-
-    .review .who {
-      font-family: 'Archivo';
-      font-weight: 700;
-      font-size: .85rem;
-      text-transform: uppercase;
-    }
-
-    /* FAQ */
-    .faq details {
-      border: 2px solid var(--ink);
-      background: var(--card);
-      margin-bottom: 10px;
-    }
-
-    .faq summary {
-      cursor: pointer;
-      list-style: none;
-      padding: 16px 20px;
-      font-family: 'Archivo';
-      font-weight: 700;
-      text-transform: uppercase;
-      font-size: .95rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .faq summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .faq summary::after {
-      content: "+";
-      font-size: 1.3rem;
-      color: var(--orange);
-      font-weight: 900;
-    }
-
-    .faq details[open] summary::after {
-      content: "–";
-    }
-
-    .faq details[open] summary {
-      background: var(--tape);
-      border-bottom: 2px solid var(--ink);
-    }
-
-    .faq .a {
-      padding: 16px 20px;
-      color: var(--steel);
-      font-size: .98rem;
-    }
-
-    .visit {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 44px;
-    }
-
-    .hours td {
-      padding: 8px 0;
-      border-bottom: 1px dashed var(--line);
-    }
-
-    .hours td:last-child {
-      text-align: right;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: .85rem;
-    }
-
-    .hours tr.today td {
-      color: var(--orange);
-      font-weight: 700;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    .map {
-      margin-top: 22px;
-      border: 2px solid var(--ink);
-      background: repeating-linear-gradient(45deg, #E8E6DE 0 12px, #EFEDE6 12px 24px);
-      height: 150px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: .78rem;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--steel);
-    }
-
-    form {
-      background: var(--card);
-      border: 2px solid var(--ink);
-      padding: 22px;
-      box-shadow: 6px 6px 0 var(--ink);
-    }
-
-    label {
-      display: block;
-      font-family: 'Archivo';
-      font-weight: 700;
-      font-size: .82rem;
-      text-transform: uppercase;
-      margin: 14px 0 5px;
-    }
-
-    input,
-    select,
-    textarea {
-      width: 100%;
-      padding: 11px;
-      border: 2px solid var(--ink);
-      background: var(--paper);
-      font-family: inherit;
-      font-size: 1rem;
-    }
-
-    input:focus,
-    textarea:focus {
-      background: #fff;
-    }
-
-    button.submit {
-      margin-top: 18px;
-      width: 100%;
-      background: var(--orange);
-      color: #fff;
-      border: 2px solid var(--ink);
-      padding: 14px;
-      font-family: 'Archivo';
-      font-weight: 700;
-      font-size: 1rem;
-      cursor: pointer;
-      box-shadow: 4px 4px 0 var(--ink);
-      text-transform: uppercase;
-    }
-
-    button.submit:hover,
-    button.submit:focus-visible {
-      transform: translate(1px, 1px);
-      box-shadow: 2px 2px 0 var(--ink);
-    }
-
-    .form-note {
-      margin-top: 10px;
-      font-size: .85rem;
-      color: var(--steel);
-      text-align: center;
-    }
-
-    footer {
-      border-top: 2px solid var(--ink);
-      padding: 26px 0 90px;
-      font-size: .9rem;
-      color: var(--steel);
-    }
-
-    .foot {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    /* mobile sticky call bar */
-    .callbar {
-      display: none;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 60;
-      background: var(--orange);
-      border-top: 2px solid var(--ink);
-    }
-
-    .callbar a {
-      display: block;
-      text-align: center;
-      color: #fff;
-      text-decoration: none;
-      font-family: 'Archivo';
-      font-weight: 900;
-      text-transform: uppercase;
-      padding: 15px;
-      letter-spacing: .04em;
-    }
-
-    @media(max-width:860px) {
-      .hero {
-        grid-template-columns: 1fr;
-        padding: 40px 0 52px;
-      }
-
-      .services {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .steps,
-      .trust-grid,
-      .reviews {
-        grid-template-columns: 1fr;
-      }
-
-      .visit {
-        grid-template-columns: 1fr;
-      }
-
-      nav {
-        display: none;
-      }
-
-      .burger {
-        display: block;
-      }
-
-      .callbar {
-        display: block;
-      }
-    }
-
-    @media(max-width:520px) {
-      .services {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ironline Auto Repair | Honest Auto Repair in Killeen, TX</title>
+<meta name="description" content="Family-owned auto repair in Killeen, TX. Upfront estimates, photo proof of every repair, 12-month warranty. Diagnostics, brakes, A/C, engine and transmission.">
+<meta property="og:title" content="Ironline Auto Repair — Killeen, TX">
+<meta property="og:description" content="Fixed right. Priced straight. Upfront estimates and photo proof on every job.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23E4531B'/><text y='72' x='50' text-anchor='middle' font-size='60' font-family='Arial' font-weight='bold' fill='white'>I</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Archivo+Narrow:wght@500;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F5F4EF; --ink:#191B1E; --steel:#3D4854; --orange:#E4531B;
+    --tape:#F1B60A; --line:#C9C7BE; --card:#FFFFFF; --green:#1E7A3C;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper);color:var(--ink);font-family:'Archivo Narrow','Arial Narrow',Arial,sans-serif;font-size:17px;line-height:1.55;}
+  h1,h2,h3,h4{font-family:'Archivo',Arial,sans-serif;line-height:1.05;letter-spacing:-.01em;}
+  .mono{font-family:'IBM Plex Mono','Courier New',monospace;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;}
+  a{color:inherit;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px;}
+  :focus-visible{outline:3px solid var(--orange);outline-offset:2px;}
+  .rv{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease;}
+  .rv.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;} .rv{opacity:1;transform:none;transition:none;}
+    *{transition:none!important;animation:none!important;}
+  }
+  .stripe{height:10px;background:repeating-linear-gradient(-45deg,var(--ink) 0 14px,var(--tape) 14px 28px);}
+
+  /* utility bar */
+  .util{background:var(--ink);color:#C7CCD2;font-size:.8rem;}
+  .util .wrap{display:flex;justify-content:space-between;gap:14px;padding:7px 20px;flex-wrap:wrap;}
+  .util a{text-decoration:none;} .util a:hover{color:var(--tape);}
+  .util .mono{font-size:.68rem;color:var(--tape);}
+
+  /* header */
+  header{position:sticky;top:0;background:var(--paper);border-bottom:2px solid var(--ink);z-index:50;}
+  .bar{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:16px;}
+  .logo{font-family:'Archivo';font-weight:900;font-size:1.25rem;text-transform:uppercase;letter-spacing:.02em;}
+  .logo span{color:var(--orange);}
+  nav.main{display:flex;gap:18px;align-items:center;flex-wrap:wrap;}
+  nav.main a{text-decoration:none;font-weight:700;text-transform:uppercase;font-size:.8rem;letter-spacing:.05em;}
+  nav.main a:hover,nav.main a:focus-visible{color:var(--orange);}
+  .call{background:var(--orange);color:#fff;text-decoration:none;font-family:'Archivo';font-weight:700;padding:10px 18px;border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);white-space:nowrap;}
+  .call:hover,.call:focus-visible{transform:translate(1px,1px);box-shadow:2px 2px 0 var(--ink);}
+  .burger{display:none;background:none;border:2px solid var(--ink);padding:8px 12px;font-family:'Archivo';font-weight:700;cursor:pointer;font-size:.9rem;text-transform:uppercase;}
+  .mobile-nav{display:none;border-top:2px solid var(--ink);background:var(--card);max-height:70vh;overflow:auto;}
+  .mobile-nav.open{display:block;}
+  .mobile-nav a{display:block;padding:13px 20px;text-decoration:none;font-family:'Archivo';font-weight:700;text-transform:uppercase;border-bottom:1px solid var(--line);font-size:.9rem;}
+  .mobile-nav a:active{background:var(--tape);}
+
+  .status{display:inline-flex;align-items:center;gap:8px;}
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;}
+  .dot.closed{background:#D8443C;animation:none;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.35;}}
+
+  /* hero */
+  .hero-bg{background-color:var(--paper);background-image:repeating-linear-gradient(0deg,transparent 0 39px,rgba(61,72,84,.09) 39px 40px),repeating-linear-gradient(90deg,transparent 0 39px,rgba(61,72,84,.09) 39px 40px);}
+  .hero{padding:52px 0 30px;display:grid;grid-template-columns:1.2fr .8fr;gap:44px;align-items:start;}
+  .hero h1{font-size:clamp(2.4rem,5.5vw,4.1rem);font-weight:900;text-transform:uppercase;}
+  .hero h1 em{font-style:normal;color:var(--orange);}
+  .hero p.lead{margin-top:18px;font-size:1.15rem;max-width:44ch;color:var(--steel);}
+  .hero .actions{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap;}
+  .badges{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap;}
+  .badge{border:2px solid var(--ink);background:var(--card);padding:8px 14px;font-family:'Archivo';font-weight:700;font-size:.8rem;text-transform:uppercase;display:flex;align-items:center;gap:8px;}
+  .badge .star{color:var(--orange);}
+  .btn{display:inline-block;text-decoration:none;font-family:'Archivo';font-weight:700;padding:13px 22px;border:2px solid var(--ink);cursor:pointer;font-size:1rem;}
+  .btn.primary{background:var(--orange);color:#fff;box-shadow:4px 4px 0 var(--ink);}
+  .btn.ghost{background:var(--card);}
+  .btn:hover,.btn:focus-visible{transform:translate(1px,1px);box-shadow:2px 2px 0 var(--ink);}
+  .hero-art{margin:6px 0 -6px;}
+  .hero-art svg{width:100%;height:auto;display:block;}
+
+  .workorder{background:var(--card);border:2px solid var(--ink);box-shadow:6px 6px 0 var(--ink);}
+  .wo-head{display:flex;justify-content:space-between;border-bottom:2px solid var(--ink);padding:12px 16px;background:var(--tape);}
+  .wo-body{padding:16px;}
+  .wo-row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line);}
+  .wo-row:last-child{border-bottom:none;}
+  .wo-row b{font-family:'Archivo';text-align:right;}
+  .wo-stamp{margin:14px 16px 18px;border:3px solid var(--orange);color:var(--orange);display:inline-block;padding:5px 14px;font-family:'Archivo';font-weight:900;text-transform:uppercase;transform:rotate(-3deg);letter-spacing:.06em;animation:stamp .45s cubic-bezier(.2,1.6,.4,1) .6s backwards;}
+  @keyframes stamp{0%{transform:rotate(-3deg) scale(2.2);opacity:0;}100%{transform:rotate(-3deg) scale(1);opacity:1;}}
+
+  /* trust strip */
+  .truststrip{border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);background:var(--card);}
+  .truststrip .wrap{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;padding:14px 20px;}
+  .tbadge{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:8px;color:var(--steel);}
+  .tbadge::before{content:"";width:10px;height:10px;background:var(--orange);display:inline-block;transform:rotate(45deg);}
+
+  section{padding:60px 0;scroll-margin-top:72px;}
+  .eyebrow{color:var(--orange);font-weight:700;margin-bottom:10px;}
+  h2{font-size:clamp(1.7rem,3.4vw,2.4rem);text-transform:uppercase;font-weight:900;margin-bottom:26px;}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:step;}
+  .step{background:var(--card);border:2px solid var(--ink);padding:22px;position:relative;}
+  .step::before{counter-increment:step;content:"Step " counter(step);position:absolute;top:-13px;left:14px;background:var(--ink);color:var(--tape);font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;}
+  .step h3{margin:6px 0 8px;font-size:1.05rem;text-transform:uppercase;}
+  .step p{color:var(--steel);font-size:.95rem;}
+
+  .services{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--ink);border:2px solid var(--ink);}
+  .svc{background:var(--card);padding:20px;transition:background .2s;}
+  .svc:hover{background:#FFF3EA;}
+  .svc h3{font-size:1rem;text-transform:uppercase;margin-bottom:8px;}
+  .svc h3 span{color:var(--orange);margin-right:6px;}
+  .svc p{color:var(--steel);font-size:.92rem;}
+
+  /* coupons */
+  .coupons{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .coupon{border:2px dashed var(--ink);background:var(--card);padding:22px;position:relative;text-align:center;}
+  .coupon::before,.coupon::after{content:"";position:absolute;top:50%;width:18px;height:18px;background:var(--paper);border:2px dashed var(--ink);border-radius:50%;transform:translateY(-50%);}
+  .coupon::before{left:-11px;border-left-color:transparent;}
+  .coupon::after{right:-11px;border-right-color:transparent;}
+  .coupon .amt{font-family:'Archivo';font-weight:900;font-size:2rem;color:var(--orange);line-height:1;}
+  .coupon h3{text-transform:uppercase;font-size:1rem;margin:8px 0 6px;}
+  .coupon p{color:var(--steel);font-size:.88rem;}
+  .coupon .code{margin-top:12px;display:inline-block;background:var(--tape);border:2px solid var(--ink);padding:4px 12px;font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;}
+
+  /* estimate builder */
+  .builder{background:var(--card);border:2px solid var(--ink);box-shadow:6px 6px 0 var(--ink);padding:26px;}
+  .builder-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0;}
+  .chk{display:flex;align-items:center;gap:10px;border:2px solid var(--ink);background:var(--paper);padding:11px 13px;cursor:pointer;font-weight:700;font-size:.92rem;user-select:none;}
+  .chk input{width:17px;height:17px;accent-color:var(--orange);flex:none;}
+  .chk:has(input:checked){background:var(--tape);}
+  .builder-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;border-top:1px dashed var(--line);padding-top:16px;}
+  #pickCount{font-family:'Archivo';font-weight:900;}
+
+  .trust{background:var(--ink);color:var(--paper);}
+  .trust h2{color:#fff;}
+  .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;}
+  .trust-item .mono{color:var(--tape);margin-bottom:8px;display:block;}
+  .trust-item p{color:#C7CCD2;font-size:.98rem;}
+  .trust-item h3{margin-bottom:8px;color:#fff;}
+
+  /* team */
+  .team{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .member{background:var(--card);border:2px solid var(--ink);padding:20px;display:flex;gap:16px;align-items:center;}
+  .avatar{flex:none;width:64px;height:64px;border:2px solid var(--ink);background:repeating-linear-gradient(-45deg,var(--tape) 0 8px,#E5AC09 8px 16px);display:flex;align-items:center;justify-content:center;font-family:'Archivo';font-weight:900;font-size:1.3rem;}
+  .member h3{font-size:1rem;text-transform:uppercase;}
+  .member .mono{color:var(--orange);display:block;margin-top:3px;}
+
+  /* gallery */
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+  .shot{aspect-ratio:4/3;border:2px solid var(--ink);background:repeating-linear-gradient(45deg,#E8E6DE 0 12px,#EFEDE6 12px 24px);display:flex;align-items:flex-end;padding:10px;}
+  .shot span{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--steel);background:var(--card);border:1px solid var(--ink);padding:3px 8px;}
+
+  .rev-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:26px;}
+  .rev-head h2{margin-bottom:0;}
+  .gbadge{border:2px solid var(--ink);background:var(--card);padding:12px 18px;display:flex;align-items:center;gap:14px;box-shadow:4px 4px 0 var(--ink);}
+  .gbadge .num{font-family:'Archivo';font-weight:900;font-size:1.8rem;line-height:1;}
+  .gbadge .stars{color:var(--orange);letter-spacing:2px;}
+  .gbadge .sub{font-size:.8rem;color:var(--steel);}
+  .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .review{background:var(--card);border:2px solid var(--ink);padding:20px;}
+  .review .stars{color:var(--orange);font-size:1.05rem;letter-spacing:2px;}
+  .review p{margin:10px 0 12px;color:var(--steel);font-size:.95rem;}
+  .review .who{font-family:'Archivo';font-weight:700;font-size:.85rem;text-transform:uppercase;}
+
+  /* brands + areas */
+  .chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{border:1px solid var(--ink);background:var(--card);padding:5px 12px;font-size:.82rem;font-weight:700;}
+  .split{display:grid;grid-template-columns:1.3fr .7fr;gap:44px;align-items:start;}
+
+  .faq details{border:2px solid var(--ink);background:var(--card);margin-bottom:10px;}
+  .faq summary{cursor:pointer;list-style:none;padding:15px 20px;font-family:'Archivo';font-weight:700;text-transform:uppercase;font-size:.92rem;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:"+";font-size:1.3rem;color:var(--orange);font-weight:900;}
+  .faq details[open] summary::after{content:"\2013";}
+  .faq details[open] summary{background:var(--tape);border-bottom:2px solid var(--ink);}
+  .faq .a{padding:15px 20px;color:var(--steel);font-size:.96rem;}
+
+  .visit{display:grid;grid-template-columns:1fr 1fr;gap:44px;}
+  .hours td{padding:8px 0;border-bottom:1px dashed var(--line);}
+  .hours td:last-child{text-align:right;font-family:'IBM Plex Mono',monospace;font-size:.85rem;}
+  .hours tr.today td{color:var(--orange);font-weight:700;}
+  table{width:100%;border-collapse:collapse;}
+  .map{margin-top:22px;border:2px solid var(--ink);background:repeating-linear-gradient(45deg,#E8E6DE 0 12px,#EFEDE6 12px 24px);height:150px;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--steel);text-align:center;padding:10px;}
+
+  form{background:var(--card);border:2px solid var(--ink);padding:22px;box-shadow:6px 6px 0 var(--ink);}
+  label{display:block;font-family:'Archivo';font-weight:700;font-size:.82rem;text-transform:uppercase;margin:14px 0 5px;}
+  input,select,textarea{width:100%;padding:11px;border:2px solid var(--ink);background:var(--paper);font-family:inherit;font-size:1rem;}
+  input:focus,textarea:focus{background:#fff;}
+  button.submit{margin-top:18px;width:100%;background:var(--orange);color:#fff;border:2px solid var(--ink);padding:14px;font-family:'Archivo';font-weight:700;font-size:1rem;cursor:pointer;box-shadow:4px 4px 0 var(--ink);text-transform:uppercase;}
+  button.submit:hover,button.submit:focus-visible{transform:translate(1px,1px);box-shadow:2px 2px 0 var(--ink);}
+  .form-note{margin-top:10px;font-size:.85rem;color:var(--steel);text-align:center;}
+
+  /* financing strip */
+  .fin{background:var(--tape);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);}
+  .fin .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:20px;}
+  .fin h3{text-transform:uppercase;font-size:1.15rem;}
+  .fin p{color:#4d3f05;font-size:.95rem;}
+
+  footer{border-top:2px solid var(--ink);background:var(--ink);color:#C7CCD2;padding:40px 0 100px;font-size:.9rem;}
+  .fgrid{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:30px;}
+  footer h4{color:#fff;text-transform:uppercase;font-size:.85rem;margin-bottom:12px;letter-spacing:.05em;}
+  footer a{text-decoration:none;display:block;padding:3px 0;}
+  footer a:hover{color:var(--tape);}
+  .fbot{border-top:1px solid #33373C;margin-top:30px;padding-top:16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.8rem;color:#8A9099;}
+
+  .callbar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:60;background:var(--orange);border-top:2px solid var(--ink);}
+  .callbar a{display:block;text-align:center;color:#fff;text-decoration:none;font-family:'Archivo';font-weight:900;text-transform:uppercase;padding:15px;letter-spacing:.04em;}
+
+  @media(max-width:960px){
+    .services{grid-template-columns:1fr 1fr;}
+    .gallery{grid-template-columns:1fr 1fr;}
+    .fgrid{grid-template-columns:1fr 1fr;}
+  }
+  @media(max-width:860px){
+    .hero{grid-template-columns:1fr;padding:38px 0 24px;}
+    .steps,.trust-grid,.reviews,.coupons,.team,.builder-grid{grid-template-columns:1fr;}
+    .visit,.split{grid-template-columns:1fr;}
+    nav.main{display:none;}
+    .burger{display:block;}
+    .callbar{display:block;}
+    .util .wrap{justify-content:center;text-align:center;}
+  }
+  @media(max-width:520px){.services,.gallery,.fgrid{grid-template-columns:1fr;}}
+</style>
 </head>
-
 <body>
 
-  <header>
-    <div class="wrap bar">
-      <div class="logo">Ironline <span>Auto Repair</span></div>
-      <nav aria-label="Main">
-        <a href="#services">Services</a>
-        <a href="#why">Why Us</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#faq">FAQ</a>
-        <a href="#visit">Hours</a>
-      </nav>
-      <a class="call" href="tel:+12545550123">(254) 555-0123</a>
-      <button class="burger" aria-expanded="false" aria-controls="mnav"
-        onclick="var m=document.getElementById('mnav');var o=m.classList.toggle('open');this.setAttribute('aria-expanded',o);">Menu</button>
-    </div>
-    <div class="mobile-nav" id="mnav">
-      <a href="#services" onclick="closeNav()">Services</a>
-      <a href="#why" onclick="closeNav()">Why Us</a>
-      <a href="#reviews" onclick="closeNav()">Reviews</a>
-      <a href="#faq" onclick="closeNav()">FAQ</a>
-      <a href="#visit" onclick="closeNav()">Hours &amp; Estimate</a>
-    </div>
-  </header>
+<div class="util">
+  <div class="wrap">
+    <span>1234 Sample St, Killeen, TX 76541</span>
+    <span class="status"><span class="dot" id="statusDot"></span><span id="statusText">Open now</span>&nbsp;&middot;&nbsp;Mon&ndash;Fri 8&ndash;5:30 &middot; Sat 9&ndash;1</span>
+    <span><a href="#visit">Directions</a> &nbsp;&middot;&nbsp; <a href="tel:+12545550123">(254) 555-0123</a></span>
+  </div>
+</div>
 
-  <div class="stripe" aria-hidden="true"></div>
+<header>
+  <div class="wrap bar">
+    <div class="logo">Ironline <span>Auto Repair</span></div>
+    <nav class="main" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#specials">Specials</a>
+      <a href="#estimate">Estimate</a>
+      <a href="#why">Why Us</a>
+      <a href="#team">Our Team</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+      <a href="#visit">Contact</a>
+    </nav>
+    <a class="call" href="tel:+12545550123">(254) 555-0123</a>
+    <button class="burger" aria-expanded="false" aria-controls="mnav" onclick="var m=document.getElementById('mnav');var o=m.classList.toggle('open');this.setAttribute('aria-expanded',o);">Menu</button>
+  </div>
+  <div class="mobile-nav" id="mnav">
+    <a href="#services" onclick="closeNav()">Services</a>
+    <a href="#specials" onclick="closeNav()">Specials &amp; Coupons</a>
+    <a href="#estimate" onclick="closeNav()">Build an Estimate</a>
+    <a href="#why" onclick="closeNav()">Why Us</a>
+    <a href="#team" onclick="closeNav()">Our Team</a>
+    <a href="#reviews" onclick="closeNav()">Reviews</a>
+    <a href="#faq" onclick="closeNav()">FAQ</a>
+    <a href="#visit" onclick="closeNav()">Hours &amp; Contact</a>
+  </div>
+</header>
 
-  <main>
-    <div class="hero-bg">
-      <div class="wrap hero">
-        <div>
-          <div class="mono eyebrow">Killeen, TX &middot; Family owned &middot; All makes and models</div>
-          <h1>Fixed right.<br>Priced straight.<br><em>Back on the road.</em></h1>
-          <p class="lead">Honest diagnostics, upfront estimates, and repairs done the right way the first time. No
-            upsells, no surprises on the invoice.</p>
-          <div class="actions">
-            <a class="btn primary" href="#visit">Request an estimate</a>
-            <a class="btn ghost" href="#services">See services</a>
-          </div>
-          <div class="badges">
-            <span class="badge"><span class="star">&#9733;</span> 4.9 on Google &middot; 400+ reviews</span>
-            <span class="badge">12 mo / 12k mi warranty</span>
-            <span class="badge" id="statusBadge"><span class="dot" id="statusDot"></span><span id="statusText">Open
-                now</span></span>
-          </div>
+<div class="stripe" aria-hidden="true"></div>
+
+<main>
+  <div class="hero-bg">
+    <div class="wrap hero">
+      <div>
+        <div class="mono eyebrow">Killeen, TX &middot; Family owned &middot; All makes and models</div>
+        <h1>Fixed right.<br>Priced straight.<br><em>Back on the road.</em></h1>
+        <p class="lead">Honest diagnostics, upfront estimates, and repairs done the right way the first time. No upsells, no surprises on the invoice.</p>
+        <div class="actions">
+          <a class="btn primary" href="#estimate">Build your estimate</a>
+          <a class="btn ghost" href="#services">See services</a>
         </div>
+        <div class="badges">
+          <span class="badge"><span class="star">&#9733;</span> 4.9 on Google &middot; 400+ reviews</span>
+          <span class="badge">12 mo / 12k mi warranty</span>
+        </div>
+      </div>
 
+      <div>
         <div class="workorder" aria-label="Sample work order">
           <div class="wo-head">
             <span class="mono">Work Order</span>
@@ -883,254 +290,388 @@
           </div>
           <div class="wo-stamp">Approved by you first</div>
         </div>
+        <div class="hero-art" aria-hidden="true">
+          <svg viewBox="0 0 420 120" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="112" x2="420" y2="112" stroke="#191B1E" stroke-width="3"/>
+            <g stroke="#191B1E" stroke-width="3" fill="#F5F4EF">
+              <path d="M40 92 L52 62 Q56 54 66 54 L150 54 L186 30 Q192 24 202 24 L292 24 Q302 24 306 32 L322 62 L368 70 Q380 72 380 84 L380 92 Z" fill="#E4531B"/>
+              <path d="M158 52 L188 32 Q192 28 200 28 L232 28 L232 52 Z" fill="#F5F4EF"/>
+              <path d="M240 52 L240 28 L290 28 Q298 28 301 34 L310 52 Z" fill="#F5F4EF"/>
+              <rect x="52" y="70" width="26" height="10" fill="#F1B60A"/>
+            </g>
+            <g fill="#191B1E">
+              <circle cx="120" cy="94" r="18"/>
+              <circle cx="316" cy="94" r="18"/>
+            </g>
+            <g fill="#F5F4EF">
+              <circle cx="120" cy="94" r="8"/>
+              <circle cx="316" cy="94" r="8"/>
+            </g>
+          </svg>
+        </div>
       </div>
     </div>
+  </div>
 
-    <div class="stripe" aria-hidden="true"></div>
+  <div class="truststrip">
+    <div class="wrap">
+      <span class="tbadge">ASE-Certified Techs</span>
+      <span class="tbadge">BBB A+ Rated</span>
+      <span class="tbadge">Financing Available</span>
+      <span class="tbadge">Military Discount</span>
+      <span class="tbadge">Free In-Town Towing</span>
+    </div>
+  </div>
 
-    <section>
-      <div class="wrap rv">
-        <div class="mono eyebrow">The process</div>
-        <h2>How a repair works here</h2>
-        <div class="steps">
-          <div class="step">
-            <h3>Tell us what's wrong</h3>
-            <p>Call, come by, or send the form below. Describe the symptom — we'll take it from there.</p>
-          </div>
-          <div class="step">
-            <h3>Approve the estimate</h3>
-            <p>We diagnose, photograph what we find, and quote the full price in writing. Nothing happens until you say
-              go.</p>
-          </div>
-          <div class="step">
-            <h3>Pick it up, warrantied</h3>
-            <p>Repair completed, old parts available on request, and every job backed 12 months or 12,000 miles.</p>
-          </div>
-        </div>
+  <section>
+    <div class="wrap rv">
+      <div class="mono eyebrow">The process</div>
+      <h2>How a repair works here</h2>
+      <div class="steps">
+        <div class="step"><h3>Tell us what's wrong</h3><p>Call, come by, or send the form below. Describe the symptom &mdash; we'll take it from there.</p></div>
+        <div class="step"><h3>Approve the estimate</h3><p>We diagnose, photograph what we find, and quote the full price in writing. Nothing happens until you say go.</p></div>
+        <div class="step"><h3>Pick it up, warrantied</h3><p>Repair completed, old parts available on request, and every job backed 12 months or 12,000 miles.</p></div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="services">
-      <div class="wrap rv">
-        <div class="mono eyebrow">Line items</div>
-        <h2>Full-service repair &amp; maintenance</h2>
-        <div class="services">
-          <div class="svc">
-            <h3><span>01</span>Diagnostics</h3>
-            <p>Check engine lights, electrical faults, and drivability issues traced to the root cause, not just the
-              code.</p>
-          </div>
-          <div class="svc">
-            <h3><span>02</span>A/C &amp; Cooling</h3>
-            <p>Recharge, leak detection, compressors, radiators. Built for Texas summers.</p>
-          </div>
-          <div class="svc">
-            <h3><span>03</span>Brakes</h3>
-            <p>Pads, rotors, calipers, lines, and full system inspections with photos of wear.</p>
-          </div>
-          <div class="svc">
-            <h3><span>04</span>Engine &amp; Transmission</h3>
-            <p>From tune-ups and timing to full replacements on domestic and import vehicles.</p>
-          </div>
-          <div class="svc">
-            <h3><span>05</span>Suspension &amp; Steering</h3>
-            <p>Shocks, struts, ball joints, alignments. Kill the wander and the clunk.</p>
-          </div>
-          <div class="svc">
-            <h3><span>06</span>Scheduled Maintenance</h3>
-            <p>Oil, filters, fluids, belts, and factory-interval service that protects your warranty.</p>
-          </div>
-        </div>
+  <section id="services">
+    <div class="wrap rv">
+      <div class="mono eyebrow">Line items</div>
+      <h2>Full-service repair &amp; maintenance</h2>
+      <div class="services">
+        <div class="svc"><h3><span>01</span>Diagnostics</h3><p>Check engine lights and drivability issues traced to the root cause, not just the code.</p></div>
+        <div class="svc"><h3><span>02</span>A/C &amp; Cooling</h3><p>Recharge, leak detection, compressors, radiators. Built for Texas summers.</p></div>
+        <div class="svc"><h3><span>03</span>Brakes</h3><p>Pads, rotors, calipers, lines, and full inspections with photos of wear.</p></div>
+        <div class="svc"><h3><span>04</span>Engine</h3><p>Tune-ups, timing, gaskets, and full replacements on domestic and import vehicles.</p></div>
+        <div class="svc"><h3><span>05</span>Transmission</h3><p>Fluid service, diagnostics, rebuilds, and replacements with warranty coverage.</p></div>
+        <div class="svc"><h3><span>06</span>Suspension &amp; Steering</h3><p>Shocks, struts, ball joints, alignments. Kill the wander and the clunk.</p></div>
+        <div class="svc"><h3><span>07</span>Electrical</h3><p>Batteries, alternators, starters, wiring faults, and module diagnostics.</p></div>
+        <div class="svc"><h3><span>08</span>Scheduled Maintenance</h3><p>Oil, filters, fluids, belts, and factory-interval service that protects your warranty.</p></div>
       </div>
-    </section>
-
-    <section id="why" class="trust">
-      <div class="wrap rv">
-        <div class="mono eyebrow">Shop policy</div>
-        <h2>How we do business</h2>
-        <div class="trust-grid">
-          <div class="trust-item">
-            <span class="mono">Policy 01</span>
-            <h3>Estimate before wrench</h3>
-            <p>You approve the price in writing before any work starts. If we find something else, we call first.</p>
-          </div>
-          <div class="trust-item">
-            <span class="mono">Policy 02</span>
-            <h3>Proof, not pressure</h3>
-            <p>We photograph worn parts and show you exactly what we're replacing and why. Decline anything, no hard
-              feelings.</p>
-          </div>
-          <div class="trust-item">
-            <span class="mono">Policy 03</span>
-            <h3>Military &amp; first responder discount</h3>
-            <p>Serving the Fort Cavazos community is why we're here. Ask at the counter, we'll take care of you.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="reviews">
-      <div class="wrap rv">
-        <div class="rev-head">
-          <div>
-            <div class="mono eyebrow">Word of mouth</div>
-            <h2>What customers say</h2>
-          </div>
-          <div class="gbadge">
-            <span class="num">4.9</span>
-            <span>
-              <span class="stars" aria-label="4.9 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><br>
-              <span class="sub">400+ Google reviews</span>
-            </span>
-          </div>
-        </div>
-        <div class="reviews">
-          <div class="review">
-            <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p>"Quoted me exactly what I paid. Showed me the old parts when I picked the truck up. That's all I ask."
-            </p>
-            <div class="who">— Sample review</div>
-          </div>
-          <div class="review">
-            <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p>"Another shop said I needed a new compressor. These guys found a bad relay and charged a fraction of it."
-            </p>
-            <div class="who">— Sample review</div>
-          </div>
-          <div class="review">
-            <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p>"In and out same day for brakes before a PCS drive. Fair price, zero runaround."</p>
-            <div class="who">— Sample review</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="stripe" aria-hidden="true"></div>
-
-    <section id="faq">
-      <div class="wrap rv" style="max-width:820px;">
-        <div class="mono eyebrow">Straight answers</div>
-        <h2>Common questions</h2>
-        <div class="faq">
-          <details>
-            <summary>Do you charge for estimates?</summary>
-            <div class="a">Basic estimates are free. Complex diagnostics carry a posted diagnostic fee that's applied
-              toward the repair if you approve the work.</div>
-          </details>
-          <details>
-            <summary>Do you work on my make and model?</summary>
-            <div class="a">Almost certainly. We service domestic and import cars, trucks, and SUVs, including light-duty
-              diesels. If it's something we don't handle, we'll tell you up front and point you to someone who does.
-            </div>
-          </details>
-          <details>
-            <summary>How long will my repair take?</summary>
-            <div class="a">Most maintenance and brake jobs are same-day. Larger jobs get a time estimate with your
-              written quote, and we call if anything changes.</div>
-          </details>
-          <details>
-            <summary>Is there really a military discount?</summary>
-            <div class="a">Yes — active duty, veterans, and first responders. Just mention it when you drop off. No
-              coupon needed.</div>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section id="visit">
-      <div class="wrap visit rv">
+      <div class="split" style="margin-top:34px;">
         <div>
-          <div class="mono eyebrow">Hours &amp; location</div>
-          <h2>Stop by or send it in</h2>
-          <table class="hours" id="hoursTable">
-            <tr data-days="1,2,3,4,5">
-              <td>Monday – Friday</td>
-              <td>8:00 AM – 5:30 PM</td>
-            </tr>
-            <tr data-days="6">
-              <td>Saturday</td>
-              <td>9:00 AM – 1:00 PM</td>
-            </tr>
-            <tr data-days="0">
-              <td>Sunday</td>
-              <td>Closed</td>
-            </tr>
-          </table>
-          <p style="margin-top:22px;color:var(--steel);">1234 Sample St, Killeen, TX 76541<br>
-            <a href="tel:+12545550123" style="font-family:'Archivo';font-weight:700;text-decoration:none;">(254)
-              555-0123</a>
-          </p>
-          <div class="map" role="img" aria-label="Map placeholder">[ Google Map embeds here ]</div>
+          <h4 class="mono eyebrow" style="margin-bottom:10px;">Makes we service</h4>
+          <div class="chips">
+            <span class="chip">Ford</span><span class="chip">Chevrolet</span><span class="chip">GMC</span><span class="chip">Ram</span><span class="chip">Toyota</span><span class="chip">Honda</span><span class="chip">Nissan</span><span class="chip">Jeep</span><span class="chip">Hyundai</span><span class="chip">Kia</span><span class="chip">Subaru</span><span class="chip">Mazda</span><span class="chip">Volkswagen</span><span class="chip">BMW</span><span class="chip">Mercedes</span><span class="chip">Audi</span><span class="chip">Lexus</span><span class="chip">Light-duty diesel</span><span class="chip">+ most others</span>
+          </div>
         </div>
         <div>
-          <form
-            onsubmit="event.preventDefault(); this.querySelector('.form-note').textContent='Request received — we will call you back within one business day.'; this.querySelector('.form-note').style.color='var(--green)';">
-            <div class="mono" style="text-align:center;">Request an estimate</div>
-            <label for="f-name">Name</label>
-            <input id="f-name" type="text" autocomplete="name" required>
-            <label for="f-phone">Phone</label>
-            <input id="f-phone" type="tel" autocomplete="tel" required>
-            <label for="f-vehicle">Vehicle (year / make / model)</label>
-            <input id="f-vehicle" type="text" placeholder="2016 F-150 5.0">
-            <label for="f-issue">What's going on?</label>
-            <textarea id="f-issue" rows="3" placeholder="Grinding when braking at low speed..."></textarea>
-            <button class="submit" type="submit">Send request</button>
-            <p class="form-note">We reply during business hours. No spam, ever.</p>
-          </form>
+          <h4 class="mono eyebrow" style="margin-bottom:10px;">Areas we serve</h4>
+          <div class="chips">
+            <span class="chip">Killeen</span><span class="chip">Fort Cavazos</span><span class="chip">Harker Heights</span><span class="chip">Copperas Cove</span><span class="chip">Nolanville</span><span class="chip">Belton</span><span class="chip">Temple</span>
+          </div>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
   <div class="stripe" aria-hidden="true"></div>
 
-  <footer>
-    <div class="wrap foot">
-      <span>© 2026 Ironline Auto Repair — Killeen, TX</span>
-      <span class="mono">Demo site — fictional business</span>
+  <section id="specials">
+    <div class="wrap rv">
+      <div class="mono eyebrow">Cut it out, bring it in</div>
+      <h2>This month's specials</h2>
+      <div class="coupons">
+        <div class="coupon">
+          <div class="amt">$20 off</div>
+          <h3>Any service over $150</h3>
+          <p>One per customer per visit. Mention the code when you drop off.</p>
+          <span class="code">Code: TWENTY</span>
+        </div>
+        <div class="coupon">
+          <div class="amt">Free</div>
+          <h3>Tire rotation with oil change</h3>
+          <p>Full synthetic oil change includes rotation and a multi-point check.</p>
+          <span class="code">Code: ROTATE</span>
+        </div>
+        <div class="coupon">
+          <div class="amt">10% off</div>
+          <h3>Military &amp; first responders</h3>
+          <p>Active duty, veterans, fire, EMS, and police. Every visit, every service.</p>
+          <span class="code">Code: SERVICE</span>
+        </div>
+      </div>
     </div>
-  </footer>
+  </section>
 
-  <div class="callbar">
-    <a href="tel:+12545550123">Call now — (254) 555-0123</a>
+  <section id="estimate">
+    <div class="wrap rv">
+      <div class="mono eyebrow">Interactive</div>
+      <h2>Build your estimate request</h2>
+      <div class="builder">
+        <p style="color:var(--steel);">Check what your vehicle needs and send it straight to us &mdash; we'll reply with a written quote before any work happens.</p>
+        <div class="builder-grid" id="builderGrid">
+          <label class="chk"><input type="checkbox" value="Oil change / maintenance">Oil change / maintenance</label>
+          <label class="chk"><input type="checkbox" value="Brakes (noise, grinding, soft pedal)">Brakes</label>
+          <label class="chk"><input type="checkbox" value="A/C not cold">A/C not cold</label>
+          <label class="chk"><input type="checkbox" value="Check engine light">Check engine light</label>
+          <label class="chk"><input type="checkbox" value="Suspension / steering (clunk, pull, vibration)">Suspension / steering</label>
+          <label class="chk"><input type="checkbox" value="Battery / electrical">Battery / electrical</label>
+          <label class="chk"><input type="checkbox" value="Transmission (slipping, hard shifts)">Transmission</label>
+          <label class="chk"><input type="checkbox" value="Pre-purchase inspection">Pre-purchase inspection</label>
+          <label class="chk"><input type="checkbox" value="Something else">Something else</label>
+        </div>
+        <div class="builder-foot">
+          <span><span id="pickCount">0</span> item(s) selected</span>
+          <button class="btn primary" type="button" onclick="sendToForm()">Add to request &darr;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why" class="trust">
+    <div class="wrap rv">
+      <div class="mono eyebrow">Shop policy</div>
+      <h2>How we do business</h2>
+      <div class="trust-grid">
+        <div class="trust-item">
+          <span class="mono">Policy 01</span>
+          <h3>Estimate before wrench</h3>
+          <p>You approve the price in writing before any work starts. If we find something else, we call first.</p>
+        </div>
+        <div class="trust-item">
+          <span class="mono">Policy 02</span>
+          <h3>Proof, not pressure</h3>
+          <p>We photograph worn parts and show you exactly what we're replacing and why. Decline anything, no hard feelings.</p>
+        </div>
+        <div class="trust-item">
+          <span class="mono">Policy 03</span>
+          <h3>Warranty in writing</h3>
+          <p>Every repair backed 12 months / 12,000 miles on parts and labor, printed right on your invoice.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="team">
+    <div class="wrap rv">
+      <div class="mono eyebrow">The crew</div>
+      <h2>Meet your mechanics</h2>
+      <div class="team">
+        <div class="member">
+          <div class="avatar">RD</div>
+          <div><h3>R. Delgado</h3><span class="mono">Owner &middot; Master Tech</span><p style="color:var(--steel);font-size:.9rem;margin-top:5px;">22 years turning wrenches. Diesel and drivetrain specialist.</p></div>
+        </div>
+        <div class="member">
+          <div class="avatar">MK</div>
+          <div><h3>M. Kane</h3><span class="mono">Lead Diagnostic Tech</span><p style="color:var(--steel);font-size:.9rem;margin-top:5px;">Electrical gremlins and check-engine mysteries, solved.</p></div>
+        </div>
+        <div class="member">
+          <div class="avatar">JT</div>
+          <div><h3>J. Torres</h3><span class="mono">Service Advisor</span><p style="color:var(--steel);font-size:.9rem;margin-top:5px;">Your point of contact from estimate to pickup.</p></div>
+        </div>
+      </div>
+      <div class="gallery" style="margin-top:22px;">
+        <div class="shot"><span>Shop photo</span></div>
+        <div class="shot"><span>Service bay</span></div>
+        <div class="shot"><span>Before / after</span></div>
+        <div class="shot"><span>The crew</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <div class="wrap rv">
+      <div class="rev-head">
+        <div>
+          <div class="mono eyebrow">Word of mouth</div>
+          <h2>What customers say</h2>
+        </div>
+        <div class="gbadge">
+          <span class="num">4.9</span>
+          <span>
+            <span class="stars" aria-label="4.9 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><br>
+            <span class="sub">400+ Google reviews</span>
+          </span>
+        </div>
+      </div>
+      <div class="reviews">
+        <div class="review">
+          <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"Quoted me exactly what I paid. Showed me the old parts when I picked the truck up. That's all I ask."</p>
+          <div class="who">&mdash; Sample review</div>
+        </div>
+        <div class="review">
+          <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"Another shop said I needed a new compressor. These guys found a bad relay and charged a fraction of it."</p>
+          <div class="who">&mdash; Sample review</div>
+        </div>
+        <div class="review">
+          <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"In and out same day for brakes before a PCS drive. Fair price, zero runaround."</p>
+          <div class="who">&mdash; Sample review</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="fin">
+    <div class="wrap">
+      <div>
+        <h3>Repairs shouldn't wait on payday</h3>
+        <p>Flexible financing available on approved credit for repairs over $300. Ask your service advisor.</p>
+      </div>
+      <a class="btn ghost" href="#visit" style="background:var(--paper);">Ask about financing</a>
+    </div>
   </div>
 
-  <script>
-    function closeNav() {
-      var m = document.getElementById('mnav');
-      m.classList.remove('open');
-      document.querySelector('.burger').setAttribute('aria-expanded', 'false');
+  <section id="faq">
+    <div class="wrap rv" style="max-width:820px;">
+      <div class="mono eyebrow">Straight answers</div>
+      <h2>Common questions</h2>
+      <div class="faq">
+        <details>
+          <summary>Do you charge for estimates?</summary>
+          <div class="a">Basic estimates are free. Complex diagnostics carry a posted diagnostic fee that's applied toward the repair if you approve the work.</div>
+        </details>
+        <details>
+          <summary>Do you work on my make and model?</summary>
+          <div class="a">Almost certainly &mdash; see the full list above. We service domestic and import cars, trucks, and SUVs, including light-duty diesels. If it's something we don't handle, we'll tell you up front and point you to someone who does.</div>
+        </details>
+        <details>
+          <summary>How long will my repair take?</summary>
+          <div class="a">Most maintenance and brake jobs are same-day. Larger jobs get a time estimate with your written quote, and we call if anything changes.</div>
+        </details>
+        <details>
+          <summary>Do you offer towing?</summary>
+          <div class="a">Yes &mdash; free in-town towing to the shop with any approved repair. Call us and we'll arrange it.</div>
+        </details>
+        <details>
+          <summary>Is there really a military discount?</summary>
+          <div class="a">Yes &mdash; active duty, veterans, and first responders, every visit. Just mention it when you drop off. No coupon needed.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit">
+    <div class="wrap visit rv">
+      <div>
+        <div class="mono eyebrow">Hours &amp; location</div>
+        <h2>Stop by or send it in</h2>
+        <table class="hours" id="hoursTable">
+          <tr data-days="1,2,3,4,5"><td>Monday &ndash; Friday</td><td>8:00 AM &ndash; 5:30 PM</td></tr>
+          <tr data-days="6"><td>Saturday</td><td>9:00 AM &ndash; 1:00 PM</td></tr>
+          <tr data-days="0"><td>Sunday</td><td>Closed</td></tr>
+        </table>
+        <p style="margin-top:22px;color:var(--steel);">1234 Sample St, Killeen, TX 76541<br>
+        <a href="tel:+12545550123" style="font-family:'Archivo';font-weight:700;text-decoration:none;">(254) 555-0123</a></p>
+        <div class="map" role="img" aria-label="Map placeholder">[ Live Google Map embeds here on the real site ]</div>
+      </div>
+      <div>
+        <form onsubmit="event.preventDefault(); this.querySelector('.form-note').textContent='Request received \u2014 we will call you back within one business day.'; this.querySelector('.form-note').style.color='var(--green)';">
+          <div class="mono" style="text-align:center;">Request an estimate</div>
+          <label for="f-name">Name</label>
+          <input id="f-name" type="text" autocomplete="name" required>
+          <label for="f-phone">Phone</label>
+          <input id="f-phone" type="tel" autocomplete="tel" required>
+          <label for="f-vehicle">Vehicle (year / make / model)</label>
+          <input id="f-vehicle" type="text" placeholder="2016 F-150 5.0">
+          <label for="f-issue">What's going on?</label>
+          <textarea id="f-issue" rows="4" placeholder="Grinding when braking at low speed..."></textarea>
+          <button class="submit" type="submit">Send request</button>
+          <p class="form-note">We reply during business hours. No spam, ever.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="stripe" aria-hidden="true"></div>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="logo" style="color:#fff;margin-bottom:12px;">Ironline <span>Auto Repair</span></div>
+        <p>Family-owned, full-service auto repair serving Killeen and the Fort Cavazos community. Fixed right, priced straight.</p>
+        <p style="margin-top:12px;"><a href="tel:+12545550123" style="display:inline;color:var(--tape);font-family:'Archivo';font-weight:700;">(254) 555-0123</a></p>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <p>1234 Sample St<br>Killeen, TX 76541</p>
+        <p style="margin-top:10px;">Mon&ndash;Fri: 8:00&ndash;5:30<br>Sat: 9:00&ndash;1:00<br>Sun: Closed</p>
+      </div>
+      <div>
+        <h4>Quick links</h4>
+        <a href="#services">Services</a>
+        <a href="#specials">Specials</a>
+        <a href="#estimate">Build an estimate</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div>
+        <h4>Popular services</h4>
+        <a href="#services">Brake repair</a>
+        <a href="#services">A/C service</a>
+        <a href="#services">Check engine diagnostics</a>
+        <a href="#services">Oil change</a>
+        <a href="#services">Suspension &amp; alignment</a>
+      </div>
+    </div>
+    <div class="fbot">
+      <span>&copy; 2026 Ironline Auto Repair &mdash; Killeen, TX</span>
+      <span class="mono">Demo site &mdash; fictional business</span>
+    </div>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a href="tel:+12545550123">Call now &mdash; (254) 555-0123</a>
+</div>
+
+<script>
+  function closeNav(){
+    var m=document.getElementById('mnav');
+    m.classList.remove('open');
+    document.querySelector('.burger').setAttribute('aria-expanded','false');
+  }
+
+  // estimate builder
+  var grid=document.getElementById('builderGrid');
+  grid.addEventListener('change',function(){
+    var n=grid.querySelectorAll('input:checked').length;
+    document.getElementById('pickCount').textContent=n;
+  });
+  function sendToForm(){
+    var picked=[];
+    grid.querySelectorAll('input:checked').forEach(function(c){picked.push(c.value);});
+    var box=document.getElementById('f-issue');
+    if(picked.length){
+      box.value='Requesting an estimate for: '+picked.join('; ')+'. ';
     }
+    document.getElementById('visit').scrollIntoView();
+    setTimeout(function(){box.focus();},400);
+  }
 
-    // scroll reveal
-    (function () {
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        document.querySelectorAll('.rv').forEach(function (el) { el.classList.add('in'); });
-        return;
-      }
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-        });
-      }, { threshold: .12 });
-      document.querySelectorAll('.rv').forEach(function (el) { io.observe(el); });
-    })();
-
-    // live open/closed status + today highlight (Mon-Fri 8-17:30, Sat 9-13)
-    (function () {
-      var now = new Date(), day = now.getDay(), mins = now.getHours() * 60 + now.getMinutes();
-      var open = false;
-      if (day >= 1 && day <= 5) { open = (mins >= 480 && mins < 1050); }
-      else if (day === 6) { open = (mins >= 540 && mins < 780); }
-      var dot = document.getElementById('statusDot'), txt = document.getElementById('statusText');
-      if (!open) { dot.classList.add('closed'); txt.textContent = 'Closed now'; }
-      document.querySelectorAll('#hoursTable tr').forEach(function (tr) {
-        if (tr.dataset.days.split(',').indexOf(String(day)) > -1) { tr.classList.add('today'); }
+  // scroll reveal
+  (function(){
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in');});
+      return;
+    }
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
       });
-    })();
-  </script>
+    },{threshold:.1});
+    document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+  })();
+
+  // live open/closed status + today highlight (Mon-Fri 8-17:30, Sat 9-13)
+  (function(){
+    var now=new Date(), day=now.getDay(), mins=now.getHours()*60+now.getMinutes();
+    var open=false;
+    if(day>=1&&day<=5){open=(mins>=480&&mins<1050);}
+    else if(day===6){open=(mins>=540&&mins<780);}
+    var dot=document.getElementById('statusDot'), txt=document.getElementById('statusText');
+    if(!open){dot.classList.add('closed');txt.textContent='Closed now';}
+    document.querySelectorAll('#hoursTable tr').forEach(function(tr){
+      if(tr.dataset.days.split(',').indexOf(String(day))>-1){tr.classList.add('today');}
+    });
+  })();
+</script>
 
 </body>
-
 </html>
