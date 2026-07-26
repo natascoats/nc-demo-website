@@ -10,6 +10,27 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23E4531B'/><text y='72' x='50' text-anchor='middle' font-size='60' font-family='Arial' font-weight='bold' fill='white'>I</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Archivo+Narrow:wght@500;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<!--
+  ============================================================
+  PHOTO SETUP (10 minutes, free, license-safe)
+  ============================================================
+  Create a folder named  img  next to this file, then download
+  free photos from pexels.com or unsplash.com (both licenses
+  allow commercial use, no attribution required) and save as:
+
+    img/hero.jpg     search: "mechanic working under car"
+                     (dark/moody wide shot works best)
+    img/shop-1.jpg   search: "auto repair shop garage"
+    img/shop-2.jpg   search: "car lift service bay"
+    img/shop-3.jpg   search: "mechanic tools wrench"
+    img/shop-4.jpg   search: "mechanic customer handshake"
+
+  Aim for images under ~400KB each (use the "medium" download
+  size). The site works WITHOUT these images too - every photo
+  slot falls back to a styled placeholder automatically, so
+  nothing ever looks broken.
+  ============================================================
+-->
 <style>
   :root{
     --paper:#F5F4EF; --ink:#191B1E; --steel:#3D4854; --orange:#E4531B;
@@ -31,13 +52,10 @@
   }
   .stripe{height:10px;background:repeating-linear-gradient(-45deg,var(--ink) 0 14px,var(--tape) 14px 28px);}
 
-  /* utility bar */
   .util{background:var(--ink);color:#C7CCD2;font-size:.8rem;}
   .util .wrap{display:flex;justify-content:space-between;gap:14px;padding:7px 20px;flex-wrap:wrap;}
   .util a{text-decoration:none;} .util a:hover{color:var(--tape);}
-  .util .mono{font-size:.68rem;color:var(--tape);}
 
-  /* header */
   header{position:sticky;top:0;background:var(--paper);border-bottom:2px solid var(--ink);z-index:50;}
   .bar{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:16px;}
   .logo{font-family:'Archivo';font-weight:900;font-size:1.25rem;text-transform:uppercase;letter-spacing:.02em;}
@@ -58,24 +76,24 @@
   .dot.closed{background:#D8443C;animation:none;}
   @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.35;}}
 
-  /* hero */
-  .hero-bg{background-color:var(--paper);background-image:repeating-linear-gradient(0deg,transparent 0 39px,rgba(61,72,84,.09) 39px 40px),repeating-linear-gradient(90deg,transparent 0 39px,rgba(61,72,84,.09) 39px 40px);}
-  .hero{padding:52px 0 30px;display:grid;grid-template-columns:1.2fr .8fr;gap:44px;align-items:start;}
-  .hero h1{font-size:clamp(2.4rem,5.5vw,4.1rem);font-weight:900;text-transform:uppercase;}
+  /* PHOTO HERO */
+  .hero-photo{position:relative;background:var(--ink);background-image:repeating-linear-gradient(0deg,transparent 0 39px,rgba(241,182,10,.05) 39px 40px),repeating-linear-gradient(90deg,transparent 0 39px,rgba(241,182,10,.05) 39px 40px);overflow:hidden;}
+  .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;}
+  .hero-veil{position:absolute;inset:0;background:linear-gradient(100deg,rgba(16,18,21,.94) 0%,rgba(16,18,21,.82) 45%,rgba(16,18,21,.55) 100%);}
+  .hero{position:relative;padding:60px 0 44px;display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:start;color:#fff;}
+  .hero .eyebrow{color:var(--tape);}
+  .hero h1{font-size:clamp(2.4rem,5.5vw,4.1rem);font-weight:900;text-transform:uppercase;color:#fff;}
   .hero h1 em{font-style:normal;color:var(--orange);}
-  .hero p.lead{margin-top:18px;font-size:1.15rem;max-width:44ch;color:var(--steel);}
+  .hero p.lead{margin-top:18px;font-size:1.15rem;max-width:44ch;color:#C7CCD2;}
   .hero .actions{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap;}
   .badges{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap;}
-  .badge{border:2px solid var(--ink);background:var(--card);padding:8px 14px;font-family:'Archivo';font-weight:700;font-size:.8rem;text-transform:uppercase;display:flex;align-items:center;gap:8px;}
+  .badge{border:2px solid var(--ink);background:var(--card);color:var(--ink);padding:8px 14px;font-family:'Archivo';font-weight:700;font-size:.8rem;text-transform:uppercase;display:flex;align-items:center;gap:8px;}
   .badge .star{color:var(--orange);}
-  .btn{display:inline-block;text-decoration:none;font-family:'Archivo';font-weight:700;padding:13px 22px;border:2px solid var(--ink);cursor:pointer;font-size:1rem;}
-  .btn.primary{background:var(--orange);color:#fff;box-shadow:4px 4px 0 var(--ink);}
-  .btn.ghost{background:var(--card);}
-  .btn:hover,.btn:focus-visible{transform:translate(1px,1px);box-shadow:2px 2px 0 var(--ink);}
-  .hero-art{margin:6px 0 -6px;}
-  .hero-art svg{width:100%;height:auto;display:block;}
+  .btn{display:inline-block;text-decoration:none;font-family:'Archivo';font-weight:700;padding:13px 22px;border:2px solid var(--ink);cursor:pointer;font-size:1rem;color:var(--ink);background:var(--card);}
+  .btn.primary{background:var(--orange);color:#fff;box-shadow:4px 4px 0 rgba(0,0,0,.55);}
+  .btn:hover,.btn:focus-visible{transform:translate(1px,1px);box-shadow:2px 2px 0 rgba(0,0,0,.55);}
 
-  .workorder{background:var(--card);border:2px solid var(--ink);box-shadow:6px 6px 0 var(--ink);}
+  .workorder{background:var(--card);border:2px solid var(--ink);box-shadow:8px 8px 0 rgba(0,0,0,.5);color:var(--ink);}
   .wo-head{display:flex;justify-content:space-between;border-bottom:2px solid var(--ink);padding:12px 16px;background:var(--tape);}
   .wo-body{padding:16px;}
   .wo-row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line);}
@@ -84,8 +102,14 @@
   .wo-stamp{margin:14px 16px 18px;border:3px solid var(--orange);color:var(--orange);display:inline-block;padding:5px 14px;font-family:'Archivo';font-weight:900;text-transform:uppercase;transform:rotate(-3deg);letter-spacing:.06em;animation:stamp .45s cubic-bezier(.2,1.6,.4,1) .6s backwards;}
   @keyframes stamp{0%{transform:rotate(-3deg) scale(2.2);opacity:0;}100%{transform:rotate(-3deg) scale(1);opacity:1;}}
 
-  /* trust strip */
-  .truststrip{border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);background:var(--card);}
+  /* stats band */
+  .stats{position:relative;border-top:2px solid rgba(255,255,255,.15);}
+  .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:20px;}
+  .stat{text-align:center;color:#fff;}
+  .stat .n{font-family:'Archivo';font-weight:900;font-size:1.7rem;color:var(--tape);line-height:1;}
+  .stat .l{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:#9AA1A9;margin-top:5px;}
+
+  .truststrip{border-bottom:2px solid var(--ink);background:var(--card);}
   .truststrip .wrap{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;padding:14px 20px;}
   .tbadge{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:8px;color:var(--steel);}
   .tbadge::before{content:"";width:10px;height:10px;background:var(--orange);display:inline-block;transform:rotate(45deg);}
@@ -107,7 +131,6 @@
   .svc h3 span{color:var(--orange);margin-right:6px;}
   .svc p{color:var(--steel);font-size:.92rem;}
 
-  /* coupons */
   .coupons{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
   .coupon{border:2px dashed var(--ink);background:var(--card);padding:22px;position:relative;text-align:center;}
   .coupon::before,.coupon::after{content:"";position:absolute;top:50%;width:18px;height:18px;background:var(--paper);border:2px dashed var(--ink);border-radius:50%;transform:translateY(-50%);}
@@ -118,7 +141,6 @@
   .coupon p{color:var(--steel);font-size:.88rem;}
   .coupon .code{margin-top:12px;display:inline-block;background:var(--tape);border:2px solid var(--ink);padding:4px 12px;font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;}
 
-  /* estimate builder */
   .builder{background:var(--card);border:2px solid var(--ink);box-shadow:6px 6px 0 var(--ink);padding:26px;}
   .builder-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0;}
   .chk{display:flex;align-items:center;gap:10px;border:2px solid var(--ink);background:var(--paper);padding:11px 13px;cursor:pointer;font-weight:700;font-size:.92rem;user-select:none;}
@@ -134,17 +156,17 @@
   .trust-item p{color:#C7CCD2;font-size:.98rem;}
   .trust-item h3{margin-bottom:8px;color:#fff;}
 
-  /* team */
   .team{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
   .member{background:var(--card);border:2px solid var(--ink);padding:20px;display:flex;gap:16px;align-items:center;}
   .avatar{flex:none;width:64px;height:64px;border:2px solid var(--ink);background:repeating-linear-gradient(-45deg,var(--tape) 0 8px,#E5AC09 8px 16px);display:flex;align-items:center;justify-content:center;font-family:'Archivo';font-weight:900;font-size:1.3rem;}
   .member h3{font-size:1rem;text-transform:uppercase;}
   .member .mono{color:var(--orange);display:block;margin-top:3px;}
 
-  /* gallery */
   .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
-  .shot{aspect-ratio:4/3;border:2px solid var(--ink);background:repeating-linear-gradient(45deg,#E8E6DE 0 12px,#EFEDE6 12px 24px);display:flex;align-items:flex-end;padding:10px;}
-  .shot span{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--steel);background:var(--card);border:1px solid var(--ink);padding:3px 8px;}
+  .shot{aspect-ratio:4/3;border:2px solid var(--ink);background:repeating-linear-gradient(45deg,#E8E6DE 0 12px,#EFEDE6 12px 24px);position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:10px;}
+  .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .35s ease;}
+  .shot:hover img{transform:scale(1.05);}
+  .shot span{position:relative;font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--steel);background:var(--card);border:1px solid var(--ink);padding:3px 8px;}
 
   .rev-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:26px;}
   .rev-head h2{margin-bottom:0;}
@@ -158,7 +180,6 @@
   .review p{margin:10px 0 12px;color:var(--steel);font-size:.95rem;}
   .review .who{font-family:'Archivo';font-weight:700;font-size:.85rem;text-transform:uppercase;}
 
-  /* brands + areas */
   .chips{display:flex;flex-wrap:wrap;gap:8px;}
   .chip{border:1px solid var(--ink);background:var(--card);padding:5px 12px;font-size:.82rem;font-weight:700;}
   .split{display:grid;grid-template-columns:1.3fr .7fr;gap:44px;align-items:start;}
@@ -186,7 +207,6 @@
   button.submit:hover,button.submit:focus-visible{transform:translate(1px,1px);box-shadow:2px 2px 0 var(--ink);}
   .form-note{margin-top:10px;font-size:.85rem;color:var(--steel);text-align:center;}
 
-  /* financing strip */
   .fin{background:var(--tape);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);}
   .fin .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:20px;}
   .fin h3{text-transform:uppercase;font-size:1.15rem;}
@@ -206,9 +226,10 @@
     .services{grid-template-columns:1fr 1fr;}
     .gallery{grid-template-columns:1fr 1fr;}
     .fgrid{grid-template-columns:1fr 1fr;}
+    .stats .wrap{grid-template-columns:1fr 1fr;}
   }
   @media(max-width:860px){
-    .hero{grid-template-columns:1fr;padding:38px 0 24px;}
+    .hero{grid-template-columns:1fr;padding:42px 0 30px;}
     .steps,.trust-grid,.reviews,.coupons,.team,.builder-grid{grid-template-columns:1fr;}
     .visit,.split{grid-template-columns:1fr;}
     nav.main{display:none;}
@@ -260,7 +281,9 @@
 <div class="stripe" aria-hidden="true"></div>
 
 <main>
-  <div class="hero-bg">
+  <div class="hero-photo">
+    <img class="hero-img" src="img/hero.jpg" alt="" onerror="this.remove()">
+    <div class="hero-veil" aria-hidden="true"></div>
     <div class="wrap hero">
       <div>
         <div class="mono eyebrow">Killeen, TX &middot; Family owned &middot; All makes and models</div>
@@ -268,47 +291,33 @@
         <p class="lead">Honest diagnostics, upfront estimates, and repairs done the right way the first time. No upsells, no surprises on the invoice.</p>
         <div class="actions">
           <a class="btn primary" href="#estimate">Build your estimate</a>
-          <a class="btn ghost" href="#services">See services</a>
+          <a class="btn" href="#services">See services</a>
         </div>
         <div class="badges">
           <span class="badge"><span class="star">&#9733;</span> 4.9 on Google &middot; 400+ reviews</span>
           <span class="badge">12 mo / 12k mi warranty</span>
         </div>
       </div>
-
-      <div>
-        <div class="workorder" aria-label="Sample work order">
-          <div class="wo-head">
-            <span class="mono">Work Order</span>
-            <span class="mono">No. 04182</span>
-          </div>
-          <div class="wo-body">
-            <div class="wo-row"><span>Diagnostic scan + inspection</span><b>Upfront quote</b></div>
-            <div class="wo-row"><span>Estimate approved before work</span><b>Always</b></div>
-            <div class="wo-row"><span>Photos of what we find</span><b>Included</b></div>
-            <div class="wo-row"><span>Parts + labor warranty</span><b>12 mo / 12k mi</b></div>
-          </div>
-          <div class="wo-stamp">Approved by you first</div>
+      <div class="workorder" aria-label="Sample work order">
+        <div class="wo-head">
+          <span class="mono">Work Order</span>
+          <span class="mono">No. 04182</span>
         </div>
-        <div class="hero-art" aria-hidden="true">
-          <svg viewBox="0 0 420 120" xmlns="http://www.w3.org/2000/svg">
-            <line x1="0" y1="112" x2="420" y2="112" stroke="#191B1E" stroke-width="3"/>
-            <g stroke="#191B1E" stroke-width="3" fill="#F5F4EF">
-              <path d="M40 92 L52 62 Q56 54 66 54 L150 54 L186 30 Q192 24 202 24 L292 24 Q302 24 306 32 L322 62 L368 70 Q380 72 380 84 L380 92 Z" fill="#E4531B"/>
-              <path d="M158 52 L188 32 Q192 28 200 28 L232 28 L232 52 Z" fill="#F5F4EF"/>
-              <path d="M240 52 L240 28 L290 28 Q298 28 301 34 L310 52 Z" fill="#F5F4EF"/>
-              <rect x="52" y="70" width="26" height="10" fill="#F1B60A"/>
-            </g>
-            <g fill="#191B1E">
-              <circle cx="120" cy="94" r="18"/>
-              <circle cx="316" cy="94" r="18"/>
-            </g>
-            <g fill="#F5F4EF">
-              <circle cx="120" cy="94" r="8"/>
-              <circle cx="316" cy="94" r="8"/>
-            </g>
-          </svg>
+        <div class="wo-body">
+          <div class="wo-row"><span>Diagnostic scan + inspection</span><b>Upfront quote</b></div>
+          <div class="wo-row"><span>Estimate approved before work</span><b>Always</b></div>
+          <div class="wo-row"><span>Photos of what we find</span><b>Included</b></div>
+          <div class="wo-row"><span>Parts + labor warranty</span><b>12 mo / 12k mi</b></div>
         </div>
+        <div class="wo-stamp">Approved by you first</div>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="wrap">
+        <div class="stat"><div class="n">15+</div><div class="l">Years in Killeen</div></div>
+        <div class="stat"><div class="n">8,000+</div><div class="l">Vehicles repaired</div></div>
+        <div class="stat"><div class="n">4.9&#9733;</div><div class="l">Google rating</div></div>
+        <div class="stat"><div class="n">12/12</div><div class="l">Mo / k-mi warranty</div></div>
       </div>
     </div>
   </div>
@@ -463,10 +472,10 @@
         </div>
       </div>
       <div class="gallery" style="margin-top:22px;">
-        <div class="shot"><span>Shop photo</span></div>
-        <div class="shot"><span>Service bay</span></div>
-        <div class="shot"><span>Before / after</span></div>
-        <div class="shot"><span>The crew</span></div>
+        <div class="shot"><img src="img/shop-1.jpg" alt="Inside the shop" onerror="this.remove()"><span>The shop</span></div>
+        <div class="shot"><img src="img/shop-2.jpg" alt="Service bay" onerror="this.remove()"><span>Service bay</span></div>
+        <div class="shot"><img src="img/shop-3.jpg" alt="Tools of the trade" onerror="this.remove()"><span>The tools</span></div>
+        <div class="shot"><img src="img/shop-4.jpg" alt="Serving a customer" onerror="this.remove()"><span>The handoff</span></div>
       </div>
     </div>
   </section>
@@ -512,7 +521,7 @@
         <h3>Repairs shouldn't wait on payday</h3>
         <p>Flexible financing available on approved credit for repairs over $300. Ask your service advisor.</p>
       </div>
-      <a class="btn ghost" href="#visit" style="background:var(--paper);">Ask about financing</a>
+      <a class="btn" href="#visit">Ask about financing</a>
     </div>
   </div>
 
@@ -628,7 +637,6 @@
     document.querySelector('.burger').setAttribute('aria-expanded','false');
   }
 
-  // estimate builder
   var grid=document.getElementById('builderGrid');
   grid.addEventListener('change',function(){
     var n=grid.querySelectorAll('input:checked').length;
@@ -645,7 +653,6 @@
     setTimeout(function(){box.focus();},400);
   }
 
-  // scroll reveal
   (function(){
     if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
       document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in');});
@@ -659,7 +666,6 @@
     document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
   })();
 
-  // live open/closed status + today highlight (Mon-Fri 8-17:30, Sat 9-13)
   (function(){
     var now=new Date(), day=now.getDay(), mins=now.getHours()*60+now.getMinutes();
     var open=false;
